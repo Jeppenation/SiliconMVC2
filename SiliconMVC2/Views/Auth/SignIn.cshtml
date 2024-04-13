@@ -1,0 +1,64 @@
+﻿@model SignInViewModel
+
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section id="signin">
+
+    <div class="container">
+
+        @* asp-route="@ViewData["returnUrl"]" *@
+
+
+        <form method="post" asp-controller="Auth" asp-action="SignIn" asp-route-ReturnUrl="@ViewData["ReturnUrl"]" novalidate>
+            <h1>Welcome Back</h1>
+            <p>Don't have an account yet? <a asp-controller="Auth" asp-action="SignUp">Sign up here</a></p>
+
+
+            <div class="content">
+
+                <div>
+                   @*  @Model.ErrorMessage *@
+                </div>
+
+                <div id="form-email" class="input-group">
+                    <label asp-for=Email></label>
+                    <span asp-validation-for="Email"></span>
+                    <input asp-for="Email" />
+                </div>
+
+                <div id="form-password" class="input-group">
+                    <label asp-for=Password></label>
+                    <span asp-validation-for="Password"></span>
+                    <input asp-for="Password" />
+                </div>
+
+                <div id="form-remember" class="checkbox">
+                    <div class="checkbox-group">
+                        <input asp-for="RememberMe" />
+                        <label asp-for="RememberMe">Remember me</label>
+                    </div>
+                </div>
+
+                <a id="form-forgot-password" asp-controller="Account" asp-action="Forgot">Forgot your password?</a>
+
+                <button class="btn-theme" id="form-submit" type="submit">@Model.Title</button>
+
+                <div class="external-providers">
+                    <h6>Sign in with your social account</h6>
+                    <div class="providers">
+                        <a class="btn-theme-secondary" asp-action="Facebook" asp-controller="Auth"><i class="fa-brands fa-facebook"></i>Facebook</a>
+                        <a class="btn-theme-secondary" asp-action="Google" asp-controller="Auth"><i class="fa-brands fa-google"></i>Google</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+</section>
+
+@await Html.PartialAsync("_ValidationPartial")

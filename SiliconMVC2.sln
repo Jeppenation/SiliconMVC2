@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconMVC2", "SiliconMVC2\SiliconMVC2.csproj", "{ECC0B3F7-A14F-4602-9DFE-38BF0E4E6375}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{84D71D58-A24B-4675-8019-745E095830EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ECC0B3F7-A14F-4602-9DFE-38BF0E4E6375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECC0B3F7-A14F-4602-9DFE-38BF0E4E6375}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECC0B3F7-A14F-4602-9DFE-38BF0E4E6375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84D71D58-A24B-4675-8019-745E095830EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84D71D58-A24B-4675-8019-745E095830EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84D71D58-A24B-4675-8019-745E095830EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84D71D58-A24B-4675-8019-745E095830EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

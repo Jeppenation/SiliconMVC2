@@ -1,0 +1,77 @@
+.content-section {
+
+
+
+
+
+
+    .container {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        padding: 50px; // Adjust padding as needed
+
+        @include lg {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .image-side {
+            img {
+                display: block;
+                max-width: 100%;
+                height: auto;
+
+                @include lg {
+                    display: block;
+                }
+
+                @include xl {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .content-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content:center;
+
+            
+
+
+            h2 {
+                padding-top: 0;
+                color: #000; // Adjust heading color as needed
+                margin-bottom: 20px; // Spacing between the heading and list
+            }
+
+            .content-list {
+                list-style: none; // Removes the default list styling
+                padding: 0; // Resets default padding
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 10px; // Spacing between list items
+
+                    i {
+                        color: $theme; // Adjust icon color as needed
+                        margin-right: 10px; // Spacing between icon and text
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+
+
+            .btn-theme-s {
+                display: inline-block;
+
+                i {
+                    margin-left: 10px; // Spacing between icon and text
+                }
+            }
+        }
+    }
+}

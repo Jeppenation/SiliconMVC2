@@ -1,0 +1,98 @@
+#app_section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $gray-100;
+
+    p {
+        color: $gray-600;
+        margin: 0px;
+    }
+
+    .container {
+        display: block;
+
+        @include lg {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h4 {
+            color: $gray-900;
+        }
+
+        .img_side {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+
+            @include lg {
+                margin-bottom: 0;
+            }
+
+            img {
+                max-width: 50%;
+
+                @include lg {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .app_side {
+
+            .apple_store {
+                display: flex;
+                justify-content: space-around;
+                margin-bottom: 1.2rem;
+
+                @include lg {
+                    margin-bottom: 3rem;
+                }
+
+                .apple_store_left {
+                }
+
+                .apple_store_right {
+                    display: flex;
+
+                    img {
+                        margin-top: 3rem;
+                        max-width: 70%;
+                        margin-left: 0rem;
+
+                        @include lg {
+                            max-width: 100%;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+
+
+            .google_play {
+                display: flex;
+                justify-content: space-around;
+
+                .google_store_left {
+                }
+
+                .google_store_right {
+                    display: flex;
+
+                    img {
+                        margin-top: 3rem;
+                        max-width: 70%;
+                        margin-left: 1rem;
+
+                        @include lg {
+                            max-width: 100%;
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
