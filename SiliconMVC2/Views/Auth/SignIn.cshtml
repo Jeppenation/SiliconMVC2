@@ -2,8 +2,55 @@
 
 
 @{
-    ViewData["Title"] = Model.Title;
+    ViewData["Title"] = "Sign In";
 }
+
+
+@* <section id="signin">
+    <div class="container">
+
+         @if (!string.IsNullOrEmpty(ViewData["StatusMessage"]?.ToString()))
+         {
+           <div class="alert alert-danger">
+           @ViewData["StatusMessage"]
+           </div>
+         }
+
+
+       <form method="post" asp-action="SignIn" asp-asp-controller="Auth" asp-route-ReturnUrl="@ViewData["ReturnUrl"]" novalidate>
+           <h1>Welcome Back!</h1>
+            <p>Don't have an account yet? <a asp-controller="Auth" asp-action="SignUp">Sign up here</a></p>
+
+            <div class="content">
+                <div id="form-email" class="input-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" />
+                </div>
+
+                <div id="form-password" class="input-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" />
+                </div>
+
+                <div id="form-remember" class="checkbox">
+                    <div class="checkbox-group">
+                        <input asp-for="RememberMe" />
+                        <label asp-for="RememberMe">Remember me</label>
+                    </div>
+                </div>
+
+                <button class="btn-theme" id="form-submit" type="submit">Sign In</button>
+
+            </div>
+
+
+       </form>
+
+
+    </div>
+</section>
+ *@
+
 
 <section id="signin">
 
@@ -11,6 +58,12 @@
 
         @* asp-route="@ViewData["returnUrl"]" *@
 
+        @if (!string.IsNullOrEmpty(ViewData["StatusMessage"]?.ToString()))
+        {
+            <div class="alert alert-danger">
+                @ViewData["StatusMessage"]
+            </div>
+        }
 
         <form method="post" asp-controller="Auth" asp-action="SignIn" asp-route-ReturnUrl="@ViewData["ReturnUrl"]" novalidate>
             <h1>Welcome Back</h1>
@@ -18,10 +71,6 @@
 
 
             <div class="content">
-
-                <div>
-                   @*  @Model.ErrorMessage *@
-                </div>
 
                 <div id="form-email" class="input-group">
                     <label asp-for=Email></label>
@@ -59,6 +108,6 @@
 
         </form>
     </div>
-</section>
+</section> 
 
 @await Html.PartialAsync("_ValidationPartial")

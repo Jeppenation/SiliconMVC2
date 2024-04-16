@@ -7,11 +7,11 @@ using SiliconMVC2.ViewModels;
 
 namespace SiliconMVC2.Controllers
 {
-    public class AuthController : Controller
+    public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, AppDataContext context) : Controller
     {
-        private readonly UserManager<UserEntity> _userManager;
-        private readonly SignInManager<UserEntity> _signInManager;
-        private readonly AppDataContext _context;
+        private readonly UserManager<UserEntity> _userManager = userManager;
+        private readonly SignInManager<UserEntity> _signInManager = signInManager;
+        private readonly AppDataContext _context = context;
 
         #region SignUp
         [Route("/SignUp")]
@@ -26,43 +26,40 @@ namespace SiliconMVC2.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp(SignUpViewModel model)
+        [Route("/SignUp")]
+        public async Task<IActionResult> SignUp(SignUpViewModel viewModel)
         {
             if (ModelState.IsValid)
             {
-                if(!await _context.Users.AnyAsync(u => u.Email == model.Email))
-                {
-                    var user = new UserEntity
-                    {
-                        FirstName = model.FirstName,
-                        LastName = model.LastName,
-                        Email = model.Email,
-                        UserName = model.Email
-                    };
 
-                    if((await _userManager.CreateAsync(user, model.Password)).Succeeded)
-                    {
-                        if ((await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false)).Succeeded)
-                        {
-                            return LocalRedirect("/");
-                        }
-                        else
-                        {
-                            return LocalRedirect("/Account/SignIn");
-                        }
-                    }
-                    else
-                    {
-                        ViewData["StatusMessage"] = "An error occurred while creating the user.";
-                    }
-                    
-                }
-                else
+                var exists = await _userManager.Users.AnyAsync(x => x.Email == viewModel.Email);
+                if (exists)
                 {
-                    ViewData["StatusMessage"] = "Email already exists.";
+                    ModelState.AddModelError("EmailAddress", "Email address already exists.");
+                    ViewData["ErrorMessage"] = "Email address already exists.";
+                    return View(viewModel);
                 }
+
+                var userEntity = new UserEntity
+                {
+                    FirstName = viewModel.FirstName,
+                    LastName = viewModel.LastName,
+                    Email = viewModel.Email,
+                    UserName = viewModel.Email
+                };
+
+                var result = await _userManager.CreateAsync(userEntity, viewModel.Password);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("SignIn", "Auth");
+                }
+
             }
-            return View(model);
+
+
+
+            return View(viewModel);
         }
 
         #endregion
@@ -82,23 +79,24 @@ namespace SiliconMVC2.Controllers
         }
 
         [HttpPost]
+        [Route("/SignIn")]
         public async Task<IActionResult> SignIn(SignInViewModel model, string returnUrl)
         {
            if (ModelState.IsValid)
             {
                 if((await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.IsPersistent, false)).Succeeded)
-                {
                     return LocalRedirect(returnUrl);
-                }
             }
 
             ViewData["ReturnUrl"] = returnUrl;
+            
             ViewData["StatusMessage"] = "Invalid login attempt.";
             return View(model);
         }
 
         #endregion
 
+        [Route("/SignOut")]
         public new async Task<IActionResult> SignOut()
         {
             await _signInManager.SignOutAsync();

@@ -1,0 +1,42 @@
+﻿
+<section id="app_section">
+    <div class="container">
+        <div class="img_side">
+            <img src="~/images/Phones_img.svg" />
+        </div>
+
+        <div class="app_side">
+            <h1>Download Our App for Any Devices:</h1>
+
+            <div class="apple_store">
+                <div class="apple_store_left">
+                    <p>App Store</p>
+                    @await Html.PartialAsync("~/Views/Shared/Partials/components/_reviewStarsPartial.cshtml")
+                    <h4>Editor's Choice</h4>
+                    <p>rating 4.7, 187K+ reviews</p>
+                </div>
+
+                <div class="apple_store_right">
+                    <img src="~/images/appstore.svg" alt="Apple store" />
+                </div>
+            </div>
+            @* ___________________________________________________________ *@
+            <div class="google_play">
+                <div class="google_store_left">
+                    <p>Google Play</p>
+                    @await Html.PartialAsync("~/Views/Shared/Partials/Components/_reviewStarsPartial.cshtml")
+                    <h4>App of the Day</h4>
+                    <p>rating 4.8, 30K+ reviews</p>
+                </div>
+
+                <div class="google_store_right">
+                    <img src="~/images/googleplay.svg" alt="Google play" />
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>

@@ -877,6 +877,7 @@ footer .container .social-media a i {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 @media (min-width: 992px) {
   #signin .container {
@@ -1049,7 +1050,7 @@ footer .container .social-media a i {
 }
 
 .Light_dark_showcase {
-  background-color: linear-gradient(to top left, #333 50%, #f5f5f5 50%);
+  background-color: #0B0F19;
   margin-top: 0;
 }
 .Light_dark_showcase .container {

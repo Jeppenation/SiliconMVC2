@@ -1,12 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SiliconMVC2.ViewModels;
 
 namespace SiliconMVC2.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Home()
+        [Route("/")]
+        public IActionResult Index()
         {
-            return View();
+            var model = new HomeIndexViewModel();
+            ViewData["Title"] = "Home Page";
+
+            return View(model);
         }
     }
 }

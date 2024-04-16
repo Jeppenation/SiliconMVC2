@@ -1,0 +1,21 @@
+﻿@model HomeIndexViewModel
+
+<div id="showcase">
+    @await Html.PartialAsync("~/Views/Shared/Partials/_ShowcasePartial.cshtml", Model.Showcase);
+</div>
+
+<div id="Light_dark_showcase">
+    @await Html.PartialAsync("~/Views/Shared/Partials/_LightDarkPartial.cshtml");
+</div>
+
+<div class="content-section">
+    @await Html.PartialAsync("~/Views/Shared/Partials/_ContentSectionPartial.cshtml");
+</div>
+
+<div class="app_section">
+    @await Html.PartialAsync("~/Views/Shared/Partials/_AppSectionPartial.cshtml");
+</div>
+
+<div id="work_tools">
+    @await Html.PartialAsync("~/Views/Shared/Partials/_WorkToolsPartial.cshtml", Model.WorkTools);
+</div>
