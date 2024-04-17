@@ -13,7 +13,7 @@ public class UserEntity : IdentityUser
     [ProtectedPersonalData]
     public string LastName { get; set; } = null!;
 
-    public string? ProfilePicture { get; set; } = "DefaultProfilePicture.jpg";
+    public string? ProfilePicture { get; set; } = "avatar.jpg";
 
 
     public string? Bio { get; set; }

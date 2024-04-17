@@ -100,7 +100,7 @@ namespace SiliconMVC2.Controllers
         public new async Task<IActionResult> SignOut()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Home", "Home");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

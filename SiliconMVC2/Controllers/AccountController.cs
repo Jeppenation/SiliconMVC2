@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SiliconMVC2.ViewModels;
+using System.Runtime.CompilerServices;
 using System.Security.Claims;
 
 namespace SiliconMVC2.Controllers
@@ -131,6 +132,31 @@ namespace SiliconMVC2.Controllers
 
 
             
+            return RedirectToAction("Details", "Account");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadProfileImage(IFormFile file)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user != null && file != null && file.Length != 0)
+            {
+                var fileName = $"p_{user.Id}_{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/uploads/Profiles", fileName);
+
+                using var stream = new FileStream(filePath, FileMode.Create);
+                await file.CopyToAsync(stream);
+
+                user.ProfilePicture = fileName;
+
+                await _userManager.UpdateAsync(user);
+            }
+            else
+            {
+                TempData["StatusMessage"] = "Profile image could not be uploaded.";
+            }
+
             return RedirectToAction("Details", "Account");
         }
     }
