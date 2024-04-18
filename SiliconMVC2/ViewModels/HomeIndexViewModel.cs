@@ -38,4 +38,8 @@ public class HomeIndexViewModel
         ]
     };
 
+    public SubscribeViewModel Subscribe { get; set; } = new();
+
+
+
 }

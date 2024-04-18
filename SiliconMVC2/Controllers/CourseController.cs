@@ -4,30 +4,29 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SiliconMVC2.ViewModels;
 
-namespace SiliconMVC2.Controllers
+namespace SiliconMVC2.Controllers;
+
+[Authorize]
+public class CourseController(HttpClient httpClient) : Controller
 {
-    [Authorize]
-    public class CourseController(HttpClient httpClient) : Controller
+    private readonly HttpClient _httpClient = httpClient;
+
+
+    [Route("/courses")]
+    public async Task<IActionResult> Index()
     {
-        private readonly HttpClient _httpClient = httpClient;
+        var viewModel = new CourseIndexViewModel();
 
-        
-
-        public async Task<IActionResult> Index()
+        var response = await _httpClient.GetAsync("https://localhost:7282/api/Courses");
+        if(response.IsSuccessStatusCode)
         {
-            var viewModel = new CourseIndexViewModel();
+            var courses = JsonConvert.DeserializeObject<IEnumerable<CoursesModel>>(await response.Content.ReadAsStringAsync());
+            if(courses != null)
+                viewModel.Courses = courses;
 
-            var response = await _httpClient.GetAsync("https://localhost:7282/api/courses");
-            if(response.IsSuccessStatusCode)
-            {
-                var courses = JsonConvert.DeserializeObject<IEnumerable<CoursesModel>>(await response.Content.ReadAsStringAsync());
-                if(courses != null)
-                    viewModel.Courses = courses;
-
-            }
-
-
-            return View(viewModel);
         }
+
+
+        return View(viewModel);
     }
 }

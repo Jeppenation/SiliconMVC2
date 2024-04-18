@@ -4,6 +4,11 @@
     @await Html.PartialAsync("~/Views/Shared/Partials/_ShowcasePartial.cshtml", Model.Showcase);
 </div>
 
+<div id="features">
+    @await Html.PartialAsync("~/Views/Shared/Partials/_FeaturesPartial.cshtml")
+</div>
+
+
 <div id="Light_dark_showcase">
     @await Html.PartialAsync("~/Views/Shared/Partials/_LightDarkPartial.cshtml");
 </div>
@@ -19,3 +24,5 @@
 <div id="work_tools">
     @await Html.PartialAsync("~/Views/Shared/Partials/_WorkToolsPartial.cshtml", Model.WorkTools);
 </div>
+
+<partial name="Partials/_SubscribeToNewsletter" model="Model.Subscribe" />

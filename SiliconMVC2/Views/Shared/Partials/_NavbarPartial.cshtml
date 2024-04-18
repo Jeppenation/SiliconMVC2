@@ -1,20 +1,25 @@
 ﻿@inject SignInManager<UserEntity> _signInManager
+@inject UserManager<UserEntity> _userManager
+
+    @{
+        var user = await _userManager.GetUserAsync(User);
+    }
 
 
 
 <header>
     <div class="container">
-        <a id="logo" asp-controller="Home" asp-action="Home"><img src="/images/Silicon Logotype - Light Mode.svg" alt="Silicon"></a>
+        <a id="logo" asp-controller="Home" asp-action="index"><img src="/images/Silicon Logotype - Light Mode.svg" alt="Silicon"></a>
 
         <div id="menu" class="hide">
             <nav>
-                <a class="menu-link" asp-controller="Home" asp-action="Home" asp-fragment="overview">Overview</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Home" asp-fragment="features">Features</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Home" asp-fragment="contact">Contact</a>
+                <a class="menu-link" asp-controller="Home" asp-action="index" asp-fragment="overview">Overview</a>
+                <a class="menu-link" asp-controller="Home" asp-action="index" asp-fragment="features">Features</a>
+                <a class="menu-link" asp-controller="Home" asp-action="index" asp-fragment="contact">Contact</a>
 
                 @if (_signInManager.IsSignedIn(User))
                 {
-                    <a class="menu-link" asp-controller="course" asp-action="#">Courses</a>
+                    <a class="menu-link" asp-controller="Course" asp-action="index">Courses</a>
                 }
 
             </nav>
@@ -33,7 +38,7 @@
             @if (_signInManager.IsSignedIn(User))
             {
                 <a asp-controller="Account" asp-action="Details">
-                    <img class="navbar-profile" src="/images/Profile-image.svg" />
+                    <img class="navbar-profile" src="~/images/uploads/Profiles/@user!.ProfilePicture" />
                 </a>
             }
             else

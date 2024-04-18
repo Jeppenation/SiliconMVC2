@@ -1,5 +1,7 @@
 using Infrastructure.Contexts;
 using Infrastructure.Entities;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +13,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+
+builder.Services.AddScoped<FeatureItemRepository>();
+builder.Services.AddScoped<FeatureRepository>();
+builder.Services.AddScoped<FeatureService>();
 builder.Services.AddIdentity<UserEntity, IdentityRole>(x =>
 {
     x.SignIn.RequireConfirmedAccount = false;
@@ -27,6 +33,10 @@ builder.Services.ConfigureApplicationCookie(options =>
     //options.Cookie.Expiration = TimeSpan.FromHours(2);
     options.SlidingExpiration = true;
 });
+
+builder.Services.AddHttpClient();
+
+
 
 
 var app = builder.Build();

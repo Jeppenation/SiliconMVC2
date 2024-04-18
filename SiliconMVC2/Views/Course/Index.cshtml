@@ -29,8 +29,28 @@
 
                             <img src="~/images/courses/@course.Image" alt="@course.Title"/>
                             <div class="content">
-                                <h5>@course.Title</h5>
-                                <p>@course.Author</p>
+                                <h5 class="title">@course.Title</h5>
+                                <p class="author">@course.Author</p>
+
+                                <div class="pricing">
+                                    @if(!string.IsNullOrEmpty(course.DiscountPrice))
+                                    {
+                                        <div class="discount">@course.DiscountPrice</div>
+                                    }
+
+
+                                    <div class="price @(!string.IsNullOrEmpty(course.DiscountPrice)? "discount-enabled" : "")">@course.Price</div>
+
+                                </div>
+
+                                <div class="footer">
+                                    <div class="hours">
+                                        <i class="fa-regular fa-clock"></i>@course.Hours
+                                    </div>
+                                    <div class="likes">
+                                        <i class="fa-regular fa-thumbs-up"></i> @course.LikesInPercent (@course.LikesInNumbers)
+                                    </div>
+                                </div>
                                 
                             </div>
                         </a>

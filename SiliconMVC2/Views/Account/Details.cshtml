@@ -19,16 +19,7 @@
         <aside>
             @await Html.PartialAsync("~/Views/Shared/Partials/_ProfilePartial.cshtml")
 
-@*             <div class="profile-info">
-                <img src="/images/@Model.BasicInfo.ProfileImage" alt="@($" Account Details for {Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}'s profile")" />
-                <h5>@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")</h5>
-                <p>@Model.BasicInfo.EmailAddress</p>
-            </div>
 
-            <nav>
-                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut">Sign out</a>
-            </nav> *@
         </aside>
 
         <div class="details">
@@ -41,7 +32,7 @@
 
                     <div class="content">
                         <div id="form-firstname" class="input-group">
-                            <label asp-for=BasicInfo!.FirstName></label>
+                            
 
                             <label asp-for="BasicInfo!.FirstName"></label>
                             <span asp-validation-for="BasicInfo!.FirstName"></span>
@@ -52,7 +43,7 @@
 
 
                         <div id="form-lastname" class="input-group">
-                            <label asp-for=BasicInfo!.LastName></label>
+                            
 
                             <label asp-for="BasicInfo!.LastName"></label>
                             <span asp-validation-for="BasicInfo!.LastName"></span>
@@ -63,7 +54,7 @@
 
 
                         <div id="form-email" class="input-group">
-                            <label asp-for=BasicInfo!.EmailAddress></label>
+                            
 
                             <label asp-for="BasicInfo!.EmailAddress"></label>
                             <span asp-validation-for="BasicInfo!.EmailAddress"></span>
@@ -73,7 +64,7 @@
 
 
                         <div id="form-phone" class="input-group">
-                            <label asp-for=BasicInfo!.Phone></label>
+                           
                             <span asp-validation-for="BasicInfo!.Phone"></span>
                             <input asp-for="BasicInfo!.Phone" />
                         </div>
