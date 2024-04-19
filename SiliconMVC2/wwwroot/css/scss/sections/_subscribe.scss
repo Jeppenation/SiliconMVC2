@@ -1,107 +1,94 @@
-.subscribe {
+#subscribe {
     background-color: $gray-100;
 
+    padding-bottom: 5rem;
+
     .container {
-
-        .subscribe_title {
+        .title {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: flex-start;
+            padding-top: 5rem;
+            margin-left: 10rem;
 
-            h1 {
+
+            h2 {
                 @include h1;
-                margin-right: 2rem;
             }
 
-            @include md {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                h1 {
-                    @include h1;
-                    margin-right: 2rem;
-                }
+            img {
+                margin-right: 2rem;
+                margin-left: 2rem;
             }
         }
 
-        .subscribe_newsletters {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        form {
 
-            @include md {
+            .alternative {
                 display: grid;
                 grid-template-columns: 1fr 3fr;
-            }
+                margin-top: 2rem;
+                margin-bottom: 2rem;
 
-            .subscribe_newsletters_text {
-                display: flex;
-                justify-content: center;
-                align-items: center;
 
-                @include md {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                h4 {
+                    @include h4;
+                    margin-left: 9.87rem;
+                }
 
-                    @include h5;
+                .options {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    margin-right: 10rem;
+
+                    .checkbox-group {
+
+
+                        .input-group {
+                            display: flex;
+
+                            label {
+                                margin-left: 1rem;
+                            }
+                        }
+                    }
                 }
             }
 
-            .subscribe_newsletters_boxes {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .subscribe_field {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 2rem;
-            padding-bottom: 0.5rem;
+            .form-email {
+                .input-group {
+                    display: flex;
+                    position: relative;
+                    gap: 1rem;
+                    margin-top: 2rem;
+                    margin-left: 7rem;
+                    padding-bottom: 0.5rem;
 
 
+                    i {
+                        position: absolute;
+                        top: 1.3rem;
+                        left: 4.5rem;
+                        color: $gray-500;
+                    }
 
-            @include lg {
-                flex-direction: row;
-            }
+                    input {
+                        padding-right: 20rem;
+                        padding-left: 3rem;
+                        margin-left: 3rem;
+                        margin-bottom: 1rem;
+                    }
 
-            i {
-                position: absolute;
-                color: $gray-500;
-                top: 15px;
-                left: 15px;
-            }
+                    .btn-theme {
+                        border-radius: 10%;
+                    }
+                }
 
-            input {
-                display: flex;
-                justify-content: flex-start;
-                background-color: $white;
-                color: $gray-500;
-                padding: 0.5rem 2.3rem;
-                border-radius: 5px;
-                width: 100%;
-                outline: none;
-                border: 1px solid $gray-400;
-            }
-        }
-
-        .terms {
-            padding-bottom: 4rem;
-            @include text-s;
-            color: $gray-600;
-
-
-            .blue_star {
-                color: $theme;
-            }
-
-            a {
-                color: $theme;
-                text-decoration: none;
+                span {
+                    margin-left: 10rem;
+                    @include text-s;
+                    color: $gray-600;
+                }
             }
         }
     }

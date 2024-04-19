@@ -1311,15 +1311,18 @@ footer .container .social-media a i {
   font-size: 16px !important;
 }
 
-.subscribe {
+#subscribe {
   background-color: #F3F6FF;
+  padding-bottom: 5rem;
 }
-.subscribe .container .subscribe_title {
+#subscribe .container .title {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  margin-left: 10rem;
 }
-.subscribe .container .subscribe_title h1 {
+#subscribe .container .title h2 {
   line-height: 160%;
   font-weight: 400;
   color: #565973;
@@ -1327,102 +1330,67 @@ footer .container .social-media a i {
   font-weight: 800;
   color: #0B0F19;
   font-size: 40px !important;
+}
+#subscribe .container .title img {
   margin-right: 2rem;
+  margin-left: 2rem;
 }
-@media (min-width: 768px) {
-  .subscribe .container .subscribe_title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .subscribe .container .subscribe_title h1 {
-    line-height: 160%;
-    font-weight: 400;
-    color: #565973;
-    font-family: "Manrope", sans-serif;
-    font-weight: 800;
-    color: #0B0F19;
-    font-size: 40px !important;
-    margin-right: 2rem;
-  }
+#subscribe .container form .alternative {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
-.subscribe .container .subscribe_newsletters {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+#subscribe .container form .alternative h4 {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  color: #0B0F19;
+  font-size: 24px !important;
+  margin-left: 9.87rem;
 }
-@media (min-width: 768px) {
-  .subscribe .container .subscribe_newsletters {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-  }
-}
-.subscribe .container .subscribe_newsletters .subscribe_newsletters_text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@media (min-width: 768px) {
-  .subscribe .container .subscribe_newsletters .subscribe_newsletters_text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 160%;
-    font-weight: 400;
-    color: #565973;
-    font-family: "Manrope", sans-serif;
-    font-weight: 800;
-    color: #0B0F19;
-    font-size: 20px !important;
-  }
-}
-.subscribe .container .subscribe_newsletters .subscribe_newsletters_boxes {
+#subscribe .container form .alternative .options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-right: 10rem;
 }
-.subscribe .container .subscribe_field {
-  position: relative;
+#subscribe .container form .alternative .options .checkbox-group .input-group {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+}
+#subscribe .container form .alternative .options .checkbox-group .input-group label {
+  margin-left: 1rem;
+}
+#subscribe .container form .form-email .input-group {
+  display: flex;
+  position: relative;
+  gap: 1rem;
   margin-top: 2rem;
+  margin-left: 7rem;
   padding-bottom: 0.5rem;
 }
-@media (min-width: 992px) {
-  .subscribe .container .subscribe_field {
-    flex-direction: row;
-  }
-}
-.subscribe .container .subscribe_field i {
+#subscribe .container form .form-email .input-group i {
   position: absolute;
+  top: 1.3rem;
+  left: 4.5rem;
   color: #B4B7C9;
-  top: 15px;
-  left: 15px;
 }
-.subscribe .container .subscribe_field input {
-  display: flex;
-  justify-content: flex-start;
-  background-color: #FFFFFF;
-  color: #B4B7C9;
-  padding: 0.5rem 2.3rem;
-  border-radius: 5px;
-  width: 100%;
-  outline: none;
-  border: 1px solid #D4D7E5;
+#subscribe .container form .form-email .input-group input {
+  padding-right: 20rem;
+  padding-left: 3rem;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
 }
-.subscribe .container .terms {
-  padding-bottom: 4rem;
+#subscribe .container form .form-email .input-group .btn-theme {
+  border-radius: 10%;
+}
+#subscribe .container form .form-email span {
+  margin-left: 10rem;
   line-height: 160%;
   font-weight: 400;
   color: #565973;
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
   color: #9397AD;
-}
-.subscribe .container .terms .blue_star {
-  color: #6366F1;
-}
-.subscribe .container .terms a {
-  color: #6366F1;
-  text-decoration: none;
 }
