@@ -952,10 +952,16 @@ footer .container .social-media a i {
 }
 
 #account-details {
-  display: grid;
-  grid-template-columns: 2fr 5fr;
-  gap: 150px;
-  margin-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 992px) {
+  #account-details {
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 150px;
+    margin-bottom: 70px;
+  }
 }
 #account-details aside {
   border-right: 1px solid #E2E5F1;
@@ -1351,14 +1357,32 @@ footer .container .social-media a i {
   font-size: 40px !important;
 }
 #subscribe .container .title img {
-  margin-right: 2rem;
-  margin-left: 2rem;
+  margin-right: 4rem;
+}
+@media (min-width: 992px) {
+  #subscribe .container .title img {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+}
+#subscribe .container form {
+  display: flex;
+  flex-direction: column;
 }
 #subscribe .container form .alternative {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+}
+@media (min-width: 992px) {
+  #subscribe .container form .alternative {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
 }
 #subscribe .container form .alternative h4 {
   line-height: 160%;
@@ -1373,7 +1397,13 @@ footer .container .social-media a i {
 #subscribe .container form .alternative .options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-right: 10rem;
+}
+@media (min-width: 992px) {
+  #subscribe .container form .alternative .options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-right: 10rem;
+  }
 }
 #subscribe .container form .alternative .options .checkbox-group .input-group {
   display: flex;
@@ -1384,28 +1414,57 @@ footer .container .social-media a i {
 #subscribe .container form .form-email .input-group {
   display: flex;
   position: relative;
-  gap: 1rem;
-  margin-top: 2rem;
-  margin-left: 7rem;
-  padding-bottom: 0.5rem;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  #subscribe .container form .form-email .input-group {
+    display: flex;
+    position: relative;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-left: 7rem;
+    padding-bottom: 0.5rem;
+  }
 }
 #subscribe .container form .form-email .input-group i {
   position: absolute;
-  top: 1.3rem;
-  left: 4.5rem;
+  top: 3.4rem;
+  left: 1.5rem;
   color: #B4B7C9;
+}
+@media (min-width: 992px) {
+  #subscribe .container form .form-email .input-group i {
+    position: absolute;
+    top: 1.3rem;
+    left: 4.5rem;
+    color: #B4B7C9;
+  }
 }
 #subscribe .container form .form-email .input-group input {
   padding-right: 20rem;
   padding-left: 3rem;
-  margin-left: 3rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
+}
+@media (min-width: 992px) {
+  #subscribe .container form .form-email .input-group input {
+    padding-right: 20rem;
+    padding-left: 3rem;
+    margin-left: 3rem;
+    margin-bottom: 1rem;
+  }
 }
 #subscribe .container form .form-email .input-group .btn-theme {
   border-radius: 10%;
+  margin-bottom: 2rem;
+}
+@media (min-width: 992px) {
+  #subscribe .container form .form-email .input-group .btn-theme {
+    border-radius: 10%;
+  }
 }
 #subscribe .container form .form-email span {
-  margin-left: 10rem;
+  margin-top: 2rem;
   line-height: 160%;
   font-weight: 400;
   color: #565973;
@@ -1413,12 +1472,40 @@ footer .container .social-media a i {
   font-size: 14px !important;
   color: #9397AD;
 }
+@media (min-width: 992px) {
+  #subscribe .container form .form-email span {
+    margin-left: 10rem;
+  }
+}
 
+.account-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1200px) {
+  .account-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
 .account-profile .profile {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0rem !important;
+}
+@media (min-width: 1200px) {
+  .account-profile .profile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .account-profile .profile img {
   border-radius: 50%;
@@ -1473,10 +1560,11 @@ footer .container .social-media a i {
 }
 
 .courses .container #form-filters .header {
-  display: grid;
-  grid-template-columns: 3.2fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   gap: 1rem;
-  padding-bottom: 2rem;
 }
 .courses .container #form-filters .header h1 {
   color: black;
@@ -1491,6 +1579,12 @@ footer .container .social-media a i {
 .courses .container #form-filters .header select {
   border: 1px solid #E2E5F1;
   border-radius: 0.5rem;
+  width: 50%;
+}
+@media (min-width: 992px) {
+  .courses .container #form-filters .header select {
+    width: 100%;
+  }
 }
 .courses .container #form-filters .header .input-search-group {
   position: relative;
@@ -1499,13 +1593,36 @@ footer .container .social-media a i {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 3rem;
+  left: 10rem;
   color: #B4B7C9;
+}
+@media (min-width: 992px) {
+  .courses .container #form-filters .header .input-search-group i {
+    right: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .courses .container #form-filters .header {
+    display: grid;
+    grid-template-columns: 3.2fr 1fr 1fr;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
 }
 .courses .container #form-filters .course-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 1rem;
+}
+@media (min-width: 768px) {
+  .courses .container #form-filters .course-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 992px) {
+  .courses .container #form-filters .course-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .courses .container #form-filters .course-items .course {
   position: relative;
@@ -1609,21 +1726,33 @@ footer .container .social-media a i {
 }
 .courses .container .getStarted {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   border-radius: 0.5rem;
   background-color: #F3F6FF;
   margin-top: 10rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+@media (min-width: 992px) {
+  .courses .container .getStarted {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 .courses .container .getStarted .getStarted-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 4rem;
+  align-content: center;
+  padding-left: 0rem;
+}
+@media (min-width: 992px) {
+  .courses .container .getStarted .getStarted-text {
+    padding-left: 4rem;
+  }
 }
 .courses .container .getStarted .getStarted-text h2 {
   display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   color: black;
   line-height: 160%;
@@ -1633,6 +1762,13 @@ footer .container .social-media a i {
   font-weight: 800;
   color: #0B0F19;
   font-size: 32px !important;
+}
+@media (min-width: 992px) {
+  .courses .container .getStarted .getStarted-text h2 {
+    display: flex;
+    gap: 0rem;
+    color: black;
+  }
 }
 .courses .container .getStarted .getStarted-text h2 .blue-text {
   color: #6366F1;
@@ -1646,10 +1782,16 @@ footer .container .social-media a i {
   margin-top: 2rem;
   text-decoration: none;
   text-align: center;
+  margin-bottom: 2rem;
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
 }
 .courses .container .getStarted .getStarted-text .btn:hover {
   box-shadow: 0px 4px 13px -2px rgba(19, 16, 34, 0.06), 0px 4.8px 24.4px -6px rgba(19, 16, 34, 0.1);
+}
+@includ lg {
+  .courses .container .getStarted .getStarted-text .btn {
+    margin-bottom: 0rem;
+  }
 }
 .courses .container .getStarted .getStarted-text .getStarted-image img {
   width: 100%;

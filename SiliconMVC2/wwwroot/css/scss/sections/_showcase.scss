@@ -2,6 +2,7 @@ main {
     .showcase {
         position: relative;
         margin-bottom: 80px;
+        
 
         @include lg {
             display: flex;

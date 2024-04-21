@@ -1,6 +1,5 @@
 #subscribe {
     background-color: $gray-100;
-
     padding-bottom: 5rem;
 
     .container {
@@ -17,18 +16,32 @@
             }
 
             img {
-                margin-right: 2rem;
-                margin-left: 2rem;
+                margin-right: 4rem;
+
+                @include lg {
+                    margin-right: 2rem;
+                    margin-left: 2rem;
+                }
             }
         }
 
         form {
+            display: flex;
+            flex-direction: column;
 
             .alternative {
-                display: grid;
-                grid-template-columns: 1fr 3fr;
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
                 margin-top: 2rem;
-                margin-bottom: 2rem;
+
+                @include lg {
+                    display: grid;
+                    grid-template-columns: 1fr 3fr;
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                }
 
 
                 h4 {
@@ -39,7 +52,13 @@
                 .options {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    margin-right: 10rem;
+
+
+                    @include lg {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        margin-right: 10rem;
+                    }
 
                     .checkbox-group {
 
@@ -59,35 +78,67 @@
                 .input-group {
                     display: flex;
                     position: relative;
-                    gap: 1rem;
-                    margin-top: 2rem;
-                    margin-left: 7rem;
-                    padding-bottom: 0.5rem;
+                    justify-content: center;
 
+
+                    @include lg {
+                        display: flex;
+                        position: relative;
+                        gap: 1rem;
+                        margin-top: 2rem;
+                        margin-left: 7rem;
+                        padding-bottom: 0.5rem;
+                    }
 
                     i {
                         position: absolute;
-                        top: 1.3rem;
-                        left: 4.5rem;
+                        top: 3.4rem;
+                        left: 1.5rem;
                         color: $gray-500;
+
+                        @include lg {
+                            position: absolute;
+                            top: 1.3rem;
+                            left: 4.5rem;
+                            color: $gray-500;
+                        }
                     }
 
                     input {
                         padding-right: 20rem;
                         padding-left: 3rem;
-                        margin-left: 3rem;
+                        
+                        margin-top: 2rem;
                         margin-bottom: 1rem;
+
+                        @include lg {
+                            padding-right: 20rem;
+                            padding-left: 3rem;
+                            margin-left: 3rem;
+                            margin-bottom: 1rem;
+                        }
                     }
 
                     .btn-theme {
                         border-radius: 10%;
+                        margin-bottom: 2rem;
+
+
+                        @include lg {
+                            border-radius: 10%;
+                            
+                        }
                     }
                 }
 
                 span {
-                    margin-left: 10rem;
+                    margin-top: 2rem;
                     @include text-s;
                     color: $gray-600;
+
+                    @include lg{
+                        margin-left: 10rem;
+                    }
                 }
             }
         }

@@ -3,44 +3,73 @@
 
         #form-filters {
 
-            .header{
-                display: grid;
-               
-                grid-template-columns: 3.2fr 1fr 1fr;
+
+
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-content: center;
+                justify-content: center;
                 gap: 1rem;
 
-                padding-bottom: 2rem;
 
-                h1{
+
+                h1 {
                     color: black;
                     @include h2;
                 }
 
-                select{
-                    border:1px solid $gray-300;
+                select {
+                    border: 1px solid $gray-300;
                     border-radius: 0.5rem;
+                    width: 50%;
 
-                    option{
-                        
+                    option {
+                    }
+
+                    @include lg {
+                        width: 100%;
                     }
                 }
-                .input-search-group{
+
+                .input-search-group {
                     position: relative;
 
-                    i{
-                      position: absolute;
+                    i {
+                        position: absolute;
                         top: 50%;
                         transform: translateY(-50%);
-                        right: 3rem;
+                        left: 10rem;
                         color: $gray-500;
+
+                        @include lg {
+                            right: 3rem;
+                        }
                     }
+                }
+
+                @include lg {
+                    display: grid;
+                    grid-template-columns: 3.2fr 1fr 1fr;
+                    gap: 1rem;
+                    padding-bottom: 2rem;
                 }
             }
 
             .course-items {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: 1fr;
                 gap: 1rem;
+
+                @include md {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+
+
+                @include lg {
+                    grid-template-columns: repeat(3, 1fr);
+                }
 
 
 
@@ -150,38 +179,51 @@
 
         .getStarted {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-
-            
+            grid-template-columns: 1fr;
             border-radius: 0.5rem;
-
             background-color: $gray-100;
-
             margin-top: 10rem;
             padding-top: 4rem;
             padding-bottom: 4rem;
+
+            @include lg {
+                grid-template-columns: 1fr 1fr;
+            }
 
             .getStarted-text {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                padding-left: 4rem;
+                align-content: center;
+                padding-left: 0rem;
+
+
+                @include lg {
+                    padding-left: 4rem;
+                }
 
                 .text-lead {
                 }
 
                 h2 {
                     display: flex;
+                    flex-direction: column;
                     gap: 0.5rem;
                     color: black;
                     @include h2;
-                    
+
+                    @include lg {
+                        display: flex;
+                        gap: 0rem;
+                        color: black;
+                    }
+
                     .blue-text {
                         color: $theme;
                     }
                 }
-                .btn{
 
+                .btn {
                     background-color: $theme;
                     color: white;
                     padding: 1rem 2rem;
@@ -190,20 +232,24 @@
                     margin-top: 2rem;
                     text-decoration: none;
                     text-align: center;
+                    margin-bottom: 2rem;
+
                     @include shadow-m;
 
                     &:hover {
                         @include shadow-l;
+                    }
+                    @includ lg{
+                        margin-bottom: 0rem;
+                    }
                 }
 
-            }
-
-            .getStarted-image {
-                img {
-                    width: 100%;
+                .getStarted-image {
+                    img {
+                        width: 100%;
+                    }
                 }
             }
         }
     }
 }
-    }
