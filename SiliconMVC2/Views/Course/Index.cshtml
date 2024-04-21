@@ -5,15 +5,19 @@
 
 <section class="courses">
     <div class="container">
-        <h1>Courses</h1>
+        
         <form id="form-filters">
-            <select>
-                <option>All categories</option>
-            </select>
-            <div class="input-search-group">
-                <input id="searchQuery" name="SearchQuery" placeholder="Search courses" />
-                <i class="fa-regular fa-search"></i>
+            <div class="header">
+                <h1>Courses</h1>
+                <select>
+                    <option>All categories</option>
+                </select>
+                <div class="input-search-group">
+                    <input id="searchQuery" name="SearchQuery" placeholder="Search courses" />
+                    <i class="fa-regular fa-search"></i>
+                </div>
             </div>
+
 
             <div class="course-items">
                 @if(Model.Courses != null)
@@ -30,7 +34,7 @@
                             <img src="~/images/courses/@course.Image" alt="@course.Title"/>
                             <div class="content">
                                 <h5 class="title">@course.Title</h5>
-                                <p class="author">@course.Author</p>
+                                <p class="author">By @course.Author</p>
 
                                 <div class="pricing">
                                     @if(!string.IsNullOrEmpty(course.DiscountPrice))
@@ -60,6 +64,20 @@
             </div>
 
         </form>
+
+        <div class="getStarted">
+            <div class="getStarted-text">
+                <h3 class="text-lead">Ready to get started?</h3>
+                <h2>Take Your <div class="blue-text">Skills</div> to the Next Level</h2>
+                <a asp-action="index" asp-controller="home" class="btn btn-primary">Work with us</a>
+            </div>
+
+            <div class="getStarted-image">
+                <img src="~/images/getStarted-Image.svg" alt="Get Started" />
+            </div>
+        </div>
+        
+
     </div>
 
 </section>

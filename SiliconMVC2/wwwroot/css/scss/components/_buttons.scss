@@ -23,6 +23,19 @@
     } 
 }
 
+
+.btn-transparent {
+    @include button;
+    background: none;
+    color: $gray-800;
+    border: none;
+
+    &:hover {
+        text-decoration: none;
+        color: $gray-500;
+    }
+}
+
 .btn-theme-secondary {
     @include button;
     background: $gray-500;

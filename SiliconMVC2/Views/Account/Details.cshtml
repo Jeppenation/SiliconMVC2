@@ -1,8 +1,12 @@
 ﻿@model AccountDetailsViewModel
+@inject UserManager<UserEntity> UserManager
+
 
 @{
 
     ViewData["Title"] = $"Account Details for {Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}'s profile";
+
+    var user = await UserManager.GetUserAsync(User);
 }
 
 
@@ -32,33 +36,56 @@
 
                     <div class="content">
                         <div id="form-firstname" class="input-group">
-                            
 
                             <label asp-for="BasicInfo!.FirstName"></label>
                             <span asp-validation-for="BasicInfo!.FirstName"></span>
-                            <input asp-for="BasicInfo!.FirstName" />
+                            @if(user!.IsExternalAccount)
+                            {
+                                <input asp-for="BasicInfo!.FirstName" disabled/>
+                            }
+                            else
+                            {
+
+                                <input asp-for="BasicInfo!.FirstName" />
+                            }
+                            
+                            
 
                         </div>
 
 
 
                         <div id="form-lastname" class="input-group">
-                            
 
                             <label asp-for="BasicInfo!.LastName"></label>
                             <span asp-validation-for="BasicInfo!.LastName"></span>
-                            <input asp-for="BasicInfo!.LastName" />
 
+                            @if(user!.IsExternalAccount)
+                            {
+                                <input asp-for="BasicInfo!.LastName" disabled/>
+                            }
+                            else
+                            {
+                                <input asp-for="BasicInfo!.LastName" />
+                            }
                         </div>
 
 
 
                         <div id="form-email" class="input-group">
-                            
 
                             <label asp-for="BasicInfo!.EmailAddress"></label>
                             <span asp-validation-for="BasicInfo!.EmailAddress"></span>
-                            <input asp-for="BasicInfo!.EmailAddress" />
+                            
+                            @if(user!.IsExternalAccount)
+                            {
+                                <input asp-for="BasicInfo!.EmailAddress" disabled/>
+                            }
+                            else
+                            {
+                                <input asp-for="BasicInfo!.EmailAddress" />
+                            }
+
                         </div>
 
 

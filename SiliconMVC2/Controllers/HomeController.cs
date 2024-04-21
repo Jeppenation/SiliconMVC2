@@ -43,4 +43,10 @@ public class HomeController(HttpClient httpClient) : Controller
 
         return RedirectToAction("Index", "Home", "subscribe");
     }
+
+    public new IActionResult NotFound()
+    {
+        return View("NotFound");
+    }
+
 }

@@ -15,7 +15,7 @@
 
             <form enctype="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
                 <input id="fileUploader" type="file" name="file" hidden />
-                <label for="fileUploader" class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i>Change Profile Picture</label>
+                <label for="fileUploader" class="btn btn-circle btn-circle-sm"><i class="fa-regular fa-refresh"></i></label>
             </form>
         </div>
 
@@ -23,6 +23,12 @@
             <h3>@user!.FirstName @user!.LastName</h3>
             <p>@user!.Email</p>
         </div>
+
+        <div class="buttons">
+            <a class="btn-theme" asp-action="Details" asp-controller="Account"><i class="fa-regular fa-gear"></i>Account Details</a>
+            <a class="btn-transparent" asp-action="SignOut" asp-controller="Auth"><i class="fa-regular fa-right-to-bracket"></i> Sign Out</a>
+        </div>
+        
 
     </div>
 </aside>

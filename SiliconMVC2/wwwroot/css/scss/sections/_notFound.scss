@@ -1,0 +1,40 @@
+.not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    img {
+    }
+
+    h1 {
+        @include h1;
+        font-weight: bold;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        @include h3;
+        color: $gray-700;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        background-color: $theme;
+        color: white;
+        padding: 1rem 2rem;
+        width: 15rem;
+        border-radius: 0.5rem;
+        margin-top: 2rem;
+        text-decoration: none;
+        text-align: center;
+
+        @include shadow-m;
+
+        &:hover {
+            @include shadow-l;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 using Infrastructure.Contexts;
 using Infrastructure.Entities;
 using Infrastructure.Repositories;
+using Infrastructure.Secretes;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -30,9 +31,26 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Account/Login";
     options.Cookie.HttpOnly = true;
     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    //options.Cookie.Expiration = TimeSpan.FromHours(2);
+    options.ExpireTimeSpan = TimeSpan.FromHours(1);
     options.SlidingExpiration = true;
 });
+
+var secret = new ThirdPartySecretes();
+
+builder.Services.AddAuthentication()
+    .AddFacebook(x =>
+    {
+        x.AppId = secret.FacebookAppId;
+        x.AppSecret = secret.FacebookAppSecret;
+        x.Fields.Add("first_name");
+        x.Fields.Add("last_name");
+    })
+    .AddGoogle(x =>
+    {
+        x.ClientId = secret.GoogleClientId;
+        x.ClientSecret = secret.GoogleClientSecret;
+    });
+
 
 builder.Services.AddHttpClient();
 
@@ -40,6 +58,18 @@ builder.Services.AddHttpClient();
 
 
 var app = builder.Build();
+
+app.Use(async (context, next) =>
+{
+    await next();
+
+    if (context.Response.StatusCode == 404)
+    {
+        context.Request.Path = "/Home/NotFound";
+        await next();
+    }
+});
+
 app.UseHsts();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
